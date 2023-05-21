@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Registry } from './Registry.entity';
+import { Registry } from './registry.entity';
 import { Repository } from 'typeorm';
 import { ServiceNames } from './shared.enums';
 
