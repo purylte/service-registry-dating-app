@@ -16,7 +16,11 @@ export class RegistryService {
   }
 
   async getRegistryById(id: number): Promise<Registry> {
-    return this.registryRepository.findOneBy({ id });
+    const registry = await this.registryRepository.findOneBy({ id });
+    if (registry === null) {
+      throw new NotFoundException(`Registry with id ${id} does not exist`);
+    }
+    return registry;
   }
 
   async getAllRegistrys(): Promise<Registry[]> {
@@ -33,10 +37,14 @@ export class RegistryService {
   }
 
   async getLatestRegistryByName(name: ServiceNames): Promise<Registry> {
-    return await this.registryRepository.findOne({
+    const registry = await this.registryRepository.findOne({
       where: { name },
       order: { lastUpdated: 'DESC' },
     });
+    if (registry === null) {
+      throw new NotFoundException(`Registry with name ${name} does not exist`);
+    }
+    return registry;
   }
 
   async createRegistry(name: ServiceNames, url: string): Promise<Registry> {

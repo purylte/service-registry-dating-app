@@ -25,6 +25,11 @@ export class registryController {
     return this.registryService.getAllRegistrys();
   }
 
+  @Get('/valid-names')
+  getValidServiceNames(): string[] {
+    return this.registryService.getValidServiceNames();
+  }
+
   @Get('/latest')
   async getLatestRegistrys(
     @Query() query: RegistryOptionDto,
