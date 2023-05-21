@@ -1,4 +1,0 @@
-DATABASE_PORT = 5432;
-DATABASE_NAME = service_registry;
-DATABASE_USERNAME = postgres;
-DATABASE_PASSWORD = postgres;
