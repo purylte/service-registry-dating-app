@@ -11,7 +11,7 @@ services:
         - DATABASE_HOST=${DATABASE_HOST}
     env_file: .env
     ports:
-      - '${PORT}:${EXPOSED_PORT}'
+      - '${EXPOSED_PORT}:${PORT}'
     depends_on:
       - db
   db:

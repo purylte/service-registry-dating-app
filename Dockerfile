@@ -21,7 +21,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5000
 
 # Start the Nest.js application
 CMD ["npm", "start"]
